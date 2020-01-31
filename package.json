@@ -9,15 +9,31 @@
     "start:dev": "npm run build:dev && node server.js",
     "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "unit-tests:watch": "jest --watch",
+    "prettier:check": "prettier --check \"./**/*.{ts,tsx}\" && npm run tslint",
+    "prettier:fix": "prettier --write \"./**/*.{ts,tsx}\"",
+    "pFix": "npm run prettier:fix && npm run tFix",
+    "tFix": "tslint -p tsconfig.json -c tslint.json --fix"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "husky": "^4.2.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "npm run prettier:check"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -33,6 +49,7 @@
     "ts-loader": "*",
     "typescript": "*",
     "webpack": "*",
+    "lint-staged": "^9.5.0",
     "webpack-cli": "*",
     "webpack-dev-middleware": "*",
     "webpack-hot-middleware": "*"
