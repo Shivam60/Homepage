@@ -11,7 +11,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "unit-tests:watch": "jest --watch",
-    "prettier:check": "prettier --check \"./**/*.{ts,tsx}\" && npm run tslint",
+    "prettier:check": "prettier --check \"./**/*.{ts,tsx}\"",
     "prettier:fix": "prettier --write \"./**/*.{ts,tsx}\"",
     "pFix": "npm run prettier:fix && npm run tFix",
     "tFix": "tslint -p tsconfig.json -c tslint.json --fix"
@@ -20,8 +20,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@microsoft/fast-components-react-base": "^4.24.1",
+    "@microsoft/fast-components-react-msft": "^4.29.3",
+    "@microsoft/fast-jss-manager-react": "^4.6.1",
     "express": "^4.17.1",
     "husky": "^4.2.1",
+    "lodash-es": "^4.17.15",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
@@ -45,11 +49,12 @@
     "@types/react-dom": "*",
     "babel-loader": "^8.0.6",
     "html-webpack-plugin": "*",
+    "lint-staged": "^9.5.0",
+    "prettier": "1.19.1",
     "source-map-loader": "*",
     "ts-loader": "*",
     "typescript": "*",
     "webpack": "*",
-    "lint-staged": "^9.5.0",
     "webpack-cli": "*",
     "webpack-dev-middleware": "*",
     "webpack-hot-middleware": "*"
